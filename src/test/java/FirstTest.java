@@ -5,8 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 ///Users/hovnatan.ghukasyan/Downloads/chromedriver
 public class FirstTest {
-   String driverPath = "/Users/hovnatan.ghukasyan/Downloads/chromedriver";
+    String driverPath = "/Users/hovnatan.ghukasyan/Downloads/chromedriver";
     WebDriver driver;
+
     @BeforeMethod
     public void initDriver() {
         System.setProperty("webdriver.chrome.driver", driverPath);
@@ -19,17 +20,21 @@ public class FirstTest {
         driver.get("https://picsart.com");
         WebElement element = driver.findElement(By.cssSelector("li[data-test=\"headerNavigation-navigationListItem-Create\"] a"));
         element.click();
-        element.findElement(By.cssSelector("[class*='createDesignHeader'] [class*='bottomText']"));
-        String text = element.getText();
+        WebElement element1 = driver.findElement(By.cssSelector("[class*='createDesignHeader'] [class*='bottomText']"));
+        String text = element1.getText();
         System.out.println(text);
 
-        }
+    }
 
-        @AfterMethod
-        public void kill() {
-            driver.close();
-            driver.quit();
-        }
+    @AfterMethod
+    public void kill() {
+        driver.close();
+        driver.quit();
+    }
+
+
+    @AfterSuite
+    public void tearDown() {
 
     }
 
@@ -71,3 +76,4 @@ public class FirstTest {
 //        System.out.println("BeforeMethod");
 //    }
 
+}
