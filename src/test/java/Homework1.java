@@ -20,24 +20,17 @@ public class Homework1 {
         @Test
         public void myFirstTest() {
             driver.get("https://picsart.com");
-            WebElement element = driver.findElement(By.cssSelector("li[data-test=\"headerNavigation-navigationListItem-Pricing\"]"));
+            WebElement element = driver.findElement(By.cssSelector("[href=\"/gold\"]"));
             element.click();
             WebElement element1 = driver.findElement(By.cssSelector(".gold-pricing-title"));
             String text = element1.getText();
             String origin = "Try PicsArt Gold Free for 7-Days";
             System.out.println(text.equals(origin));
-
         }
 
         @AfterMethod
         public void kill() {
             driver.close();
             driver.quit();
-        }
-
-
-        @AfterSuite
-        public void tearDown() {
-
         }
     }
