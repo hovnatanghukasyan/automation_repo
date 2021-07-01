@@ -31,6 +31,7 @@ public class Homework3 {
         driver.manage().addCookie(cookie2);
         driver.navigate().refresh();
         Thread.sleep(5000);      //to see the result
+
     }
 
     @AfterMethod
